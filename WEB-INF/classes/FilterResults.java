@@ -28,10 +28,19 @@ public class FilterResults extends HttpServlet {
                                 st.setString(2, profession);
                                 ResultSet rs=st.executeQuery();
                                 if(rs.next()){
-                                        //display users in a table
-                                }
-                                else{
-                                        promptUser("No such user found");
+                                        //if at all there is any user
+                                        while (rs.next()) { 
+                                                String name=rs.getString("name");
+                                                String country=rs.getString("country");
+                                                String dob=rs.getString("dob");
+                                                String prof=rs.getString("profession");
+                                                String email=rs.getString("email");
+                                                String stat=rs.getString("state");
+                                                String phno=rs.getString("phno");
+
+                                        }
+                                }else{
+                                        //handle code when no user found
                                 }
                                 
                         }catch(Exception e){

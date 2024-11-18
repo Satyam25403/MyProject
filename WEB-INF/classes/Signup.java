@@ -26,6 +26,8 @@ public class Signup extends HttpServlet {
                         String profession=request.getParameter("Profession");
                         String email=request.getParameter("email");
                         String password=request.getParameter("Password");
+                        String state=request.getParameter("state");
+                        String phone=request.getParameter("phone");
                         
                         try{
                                 PreparedStatement st1=con.prepareStatement("select email from users where email=?;");
@@ -35,13 +37,15 @@ public class Signup extends HttpServlet {
                                         redirectUser(response,"Email exists...Wish to sign in?","signin.html");
                                 }
                                 else{
-                                        PreparedStatement st= con.prepareStatement("insert into users values(?,?,?,?,?,?);");
+                                        PreparedStatement st= con.prepareStatement("insert into users values(?,?,?,?,?,?,?,?);");
                                         st.setString(1, username);
                                         st.setString(2, country);
                                         st.setString(3, dob);
                                         st.setString(4, profession);
                                         st.setString(5, email);
                                         st.setString(6, password);
+                                        st.setString(7, state);
+                                        st.setString(8, phone);
 
                                         out.println("<html><body>");
                                         int n=st.executeUpdate();
