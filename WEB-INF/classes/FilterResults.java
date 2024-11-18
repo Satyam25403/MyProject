@@ -21,6 +21,41 @@ public class FilterResults extends HttpServlet {
 
                         String state=request.getParameter("state");
                         String profession=request.getParameter("Profession");
+                        out.println("<html><head><title>Data Table</title>");
+                        out.println("<style>\r\n" + //
+                                                                "    \r\n" + //
+                                                                "    table {\r\n" + //
+                                                                "        border-collapse: collapse;\r\n" + //
+                                                                "        width: 50%;\r\n" + //
+                                                                "        margin: 20px auto;\r\n" + //
+                                                                "    }\r\n" + //
+                                                                "    th, td {\r\n" + //
+                                                                "        border: 1px solid #ddd;\r\n" + //
+                                                                "        padding: 8px;\r\n" + //
+                                                                "    }\r\n" + //
+                                                                "    th {\r\n" + //
+                                                                "        background-color: #f2f2f2;\r\n" + //
+                                                                "    }\r\n" + //
+                                                                "    h3 {\r\n" + //
+                                                                "        text-align: center;\r\n" + //
+                                                                "    }\r\n" + //
+                                                                "\r\n" + //
+                                                                "    /* Button Styles */\r\n" + //
+                                                                "    .btn {\r\n" + //
+                                                                "        background-color: #007bff;\r\n" + //
+                                                                "        color: white;\r\n" + //
+                                                                "        border: none;\r\n" + //
+                                                                "        padding: 5px 10px;\r\n" + //
+                                                                "        cursor: pointer;\r\n" + //
+                                                                "    }\r\n" + //
+                                                                "    .btn:hover {\r\n" + //
+                                                                "        background-color: #0056b3;\r\n" + //
+                                                                "    }\r\n" + //
+                                                                "</style>\r\n" + //
+                                                                "");
+                        out.println("</head><body>");
+                        out.println("<table border='1' cellpadding='5' cellspacing='0'>");
+                        out.println("<tr><th>Name</th><th>State</th><th>Profession</th><th>More details</th></tr>");
                         
                         try{
                                 PreparedStatement st=con.prepareStatement("select email from users where state=? and profession=?;");
@@ -28,24 +63,44 @@ public class FilterResults extends HttpServlet {
                                 st.setString(2, profession);
                                 ResultSet rs=st.executeQuery();
                                 if(rs.next()){
-                                        //if at all there is any user
-                                        while (rs.next()) { 
-                                                String name=rs.getString("name");
-                                                String country=rs.getString("country");
-                                                String dob=rs.getString("dob");
-                                                String prof=rs.getString("profession");
-                                                String email=rs.getString("email");
-                                                String stat=rs.getString("state");
-                                                String phno=rs.getString("phno");
+                                        do {
+                                                String name = rs.getString("name");
+                                                String country = rs.getString("country");
+                                                String dob = rs.getString("dob");
+                                                String prof = rs.getString("profession");
+                                                String email = rs.getString("email");
+                                                String stat = rs.getString("state");
+                                                String phno = rs.getString("phno");
+                        
+                                                out.println("<tr>");
+                                                out.println("<td>" + name + "</td>");
+                                                out.println("<td>" + stat + "</td>");
+                                                out.println("<td>" + prof + "</td>");
+                                                out.println("<td>");
+                                                out.println("<form action='submit.jsp' method='POST'>");
+                                                out.println("<input type='hidden' name='name' value='" + name + "'>");
+                                                out.println("<input type='hidden' name='country' value='" + country + "'>");
+                                                out.println("<input type='hidden' name='dob' value='" + dob + "'>");
+                                                out.println("<input type='hidden' name='profession' value='" + prof + "'>");
+                                                out.println("<input type='hidden' name='email' value='" + email + "'>");
+                                                out.println("<input type='hidden' name='state' value='" + stat + "'>");
+                                                out.println("<input type='hidden' name='phno' value='" + phno+ "'>");
+                                                out.println("<button type='submit' class='btn'>View User</button>");
+                                                out.println("</form>");
+                                                out.println("</td>");
+                                                out.println("</tr>");
 
-                                        }
+                                        } while (rs.next());
+                                        rs.close();
+                                
                                 }else{
-                                        //handle code when no user found
+                                        out.println("<h3>No users found</h3>");
                                 }
                                 
                         }catch(Exception e){
                                 //redirect user to chose state and profession page
                         }
+                        out.println("</table></body></html>");
 
                 }catch (SQLException e) {
                         // TODO Auto-generated catch block
