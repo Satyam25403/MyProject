@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -17,8 +16,6 @@ public class Signup extends HttpServlet {
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/satyam","root","Loknath@2534");
 
-                        PrintWriter out=response.getWriter();
-                        response.setContentType("text/html");
 
                         String username=request.getParameter("Name");
                         String country=request.getParameter("Country");
@@ -47,28 +44,21 @@ public class Signup extends HttpServlet {
                                         st.setString(7, state);
                                         st.setString(8, phone);
 
-                                        out.println("<html><body>");
                                         int n=st.executeUpdate();
                                         if(n>0){
-                                                //redirect to homepage
+                                                redirectUser(response,"successfully created...........Proceeding to login page","signin.html");
                                         }
                                         else {
                                                 redirectUser(response,"Error occured.....Confirm Resubmission?","signup.html");
                                         }
-                                        out.println("</body></html>");
-                                        st.close();
                                 }
                                 
-                        }catch(Exception e){
-                                e.printStackTrace();
+                        }catch(SQLException e){
+                        	redirectUser(response,"Error interacting with database.....Confirm Resubmission?","signup.html");
                         }
 
-                }catch (SQLException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
                 }catch (Exception e){
-                        // TODO Auto-generated catch block
-                        System.out.println("Unkown error");
+                	redirectUser(response,"An unknown error occured.....Confirm Resubmission?","signup.html");
                 }
         }
         
@@ -78,11 +68,9 @@ public class Signup extends HttpServlet {
                 int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
                 if (boxResponse == JOptionPane.YES_OPTION) {
                     response.sendRedirect(page);
-                } else if (boxResponse == JOptionPane.NO_OPTION) {
-                    System.out.println("User chose NO.");
                 } else {
-                    System.out.println("User closed the dialog.");
-                }
+                    redirectUser(response,"Action terminated....Proceeding to signup page","signup");
+                } 
         }
 
 

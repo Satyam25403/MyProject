@@ -58,7 +58,7 @@ public class FilterResults extends HttpServlet {
                         out.println("<tr><th>Name</th><th>State</th><th>Profession</th><th>More details</th></tr>");
                         
                         try{
-                                PreparedStatement st=con.prepareStatement("select email from users where state=? and profession=?;");
+                                PreparedStatement st=con.prepareStatement("select * from users where state=? and profession=?;");
                                 st.setString(1, state);
                                 st.setString(2, profession);
                                 ResultSet rs=st.executeQuery();
@@ -97,22 +97,27 @@ public class FilterResults extends HttpServlet {
                                         out.println("<h3>No users found</h3>");
                                 }
                                 
-                        }catch(Exception e){
-                                //redirect user to chose state and profession page
+                        }catch(SQLException e){
+                                redirectUser(response,"Error fetching data from database...wish to submit again?","arts.html");
                         }
                         out.println("</table></body></html>");
 
-                }catch (SQLException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
                 }catch (Exception e){
-                        // TODO Auto-generated catch block
-                        System.out.println("Unkown error");
+                	redirectUser(response,"An unknown error occured...confirm resubmission?","arts.html");
                 }
         }
         public static void promptUser(String msg){
                 JOptionPane.showMessageDialog(null, msg, "Info", JOptionPane.INFORMATION_MESSAGE);
         }
+        
+        public static void redirectUser(HttpServletResponse response,String msg,String page)throws IOException{
+            int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
+            if (boxResponse == JOptionPane.YES_OPTION) {
+                response.sendRedirect(page);
+            }else {
+                redirectUser(response,"Terminated option......confirm going back to homepage","dummy.html");
+            }
+    }
         
         
 
