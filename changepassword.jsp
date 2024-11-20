@@ -14,7 +14,7 @@ if (!userans.equals(actualans)) {
 else{
     response.setContentType("text/html");
     out.println("<html><body><form action='UpdateNewPassword' method='POST'>");
-    out.println("<input type='hidden' name='email' value='" + email+ "'>");
+    out.println("<input type='hidden' name='email' value='"+email+"'>");
     out.println("New Password:<input type='password' name='pass'>");
     out.println("New Password:<input type='password' name='confpass'>");
     out.println("<button type='submit' class='btn'>Update password</button>");
