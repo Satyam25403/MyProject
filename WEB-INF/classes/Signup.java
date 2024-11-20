@@ -25,6 +25,8 @@ public class Signup extends HttpServlet {
                         String password=request.getParameter("Password");
                         String state=request.getParameter("state");
                         String phone=request.getParameter("phone");
+                        String secques=request.getParameter("securityquestion");
+                        String ans=request.getParameter("answer");
                         
                         try{
                                 PreparedStatement st1=con.prepareStatement("select email from users where email=?;");
@@ -34,7 +36,7 @@ public class Signup extends HttpServlet {
                                         redirectUser(response,"Email exists...Wish to sign in?","signin.html");
                                 }
                                 else{
-                                        PreparedStatement st= con.prepareStatement("insert into users values(?,?,?,?,?,?,?,?);");
+                                        PreparedStatement st= con.prepareStatement("insert into users values(?,?,?,?,?,?,?,?,?,?);");
                                         st.setString(1, username);
                                         st.setString(2, country);
                                         st.setString(3, dob);
@@ -43,6 +45,8 @@ public class Signup extends HttpServlet {
                                         st.setString(6, password);
                                         st.setString(7, state);
                                         st.setString(8, phone);
+                                        st.setString(9, secques);
+                                        st.setString(10, ans);
 
                                         int n=st.executeUpdate();
                                         if(n>0){
@@ -64,13 +68,21 @@ public class Signup extends HttpServlet {
         
 
 
+        // public static void redirectUser(HttpServletResponse response,String msg,String page)throws IOException{
+        //         int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
+        //         if (boxResponse == JOptionPane.YES_OPTION) {
+        //             response.sendRedirect(page);
+        //         } else {
+        //             redirectUser(response,"Action terminated....Proceeding to signup page","signup");
+        //         } 
+        // }
         public static void redirectUser(HttpServletResponse response,String msg,String page)throws IOException{
-                int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
-                if (boxResponse == JOptionPane.YES_OPTION) {
-                    response.sendRedirect(page);
-                } else {
-                    redirectUser(response,"Action terminated....Proceeding to signup page","signup");
-                } 
+                PrintWriter out=response.getWriter();
+                response.setContentType("text/html");
+                out.println("<html><body><form action='"+page+"' method='POST'>");
+                out.println("<h1>"+msg+"</h1>");
+                out.println("<button type='submit' class='btn'>Proceed</button>");
+                out.println("</form></body></html>");
         }
 
 

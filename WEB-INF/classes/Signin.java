@@ -21,32 +21,31 @@ public class Signin extends HttpServlet {
                        
                         
                         try{
-                        				PreparedStatement test= con.prepareStatement("select email from users where email=?;");
-                        				test.setString(1, email);
-                        				ResultSet r=test.executeQuery();
-                        				if(r.next()) {
-                        					//if that mail is already in database: check for email and password
-                        					
-                        					
-                        				
-                         
-                        					PreparedStatement st= con.prepareStatement("select email from users where email=? and password=?;");
-                        					st.setString(1,email);
-                        					st.setString(2, password);
-                                        
+                                PreparedStatement test= con.prepareStatement("select email from users where email=?;");
+                                test.setString(1, email);
+                                ResultSet r=test.executeQuery();
+                                if(r.next()) {
+                                	//if that mail is already in database: check for email and password
+                                
+                                
+                                
 
-                        					ResultSet rs=st.executeQuery();
-                        					if(rs.next()){
+                                	PreparedStatement st= con.prepareStatement("select email from users where email=? and password=?;");
+                                	st.setString(1,email);
+                                	st.setString(2, password);
+                                
+                                	ResultSet rs=st.executeQuery();
+                                	if(rs.next()){
                                                 redirectUser(response,"successfully Loggedin...........Proceeding to home page","dummy.html");
-                        					}
-                        					else {
+                        		}
+                        		else {
                                                 redirectUser(response,"username password mismatch.....we recommend relogin","signin.html");
-                        					}
+                        		}
                                         
-                        					st.close();
-                        				}else {
-                        					redirectUser(response,"Unregistered email.........Proceeding to Signup page","signup.html");
-                        				}
+                        		st.close();
+                        	}else {
+                        		redirectUser(response,"Unregistered email.........Proceeding to Signup page","signup.html");
+                        	}
                                 
                         }catch(SQLException e){
                         	redirectUser(response,"Error while verifying email........Proceeding again to Signin page","signin.html");
@@ -59,13 +58,21 @@ public class Signin extends HttpServlet {
         
 
 
+        // public static void redirectUser(HttpServletResponse response,String msg,String page)throws IOException{
+        //         int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
+        //         if (boxResponse == JOptionPane.YES_OPTION) {
+        //             response.sendRedirect(page);
+        //         }else {
+        //             redirectUser(response,"Back to signinPage?","signin.html");
+        //         }
+        // }
         public static void redirectUser(HttpServletResponse response,String msg,String page)throws IOException{
-                int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
-                if (boxResponse == JOptionPane.YES_OPTION) {
-                    response.sendRedirect(page);
-                }else {
-                    redirectUser(response,"Back to signinPage?","signin.html");
-                }
+                PrintWriter out=response.getWriter();
+                response.setContentType("text/html");
+                out.println("<html><body><form action='"+page+"' method='POST'>");
+                out.println("<h1>"+msg+"</h1>");
+                out.println("<button type='submit' class='btn'>Proceed</button>");
+                out.println("</form></body></html>");
         }
 
 

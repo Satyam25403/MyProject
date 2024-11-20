@@ -1,140 +1,140 @@
 /* General Reset */
-* {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Verdana', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background: #f9f9f9;
+    color: #444;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* Container */
 .container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 350px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    max-width: 480px;
+    width: 100%;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.container:hover {
-    transform: scale(1.02);
+    animation: slideIn 0.5s ease-in-out;
 }
 
 h1.form-title {
-    font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #555;
+    color: #222;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-/* Input Group */
+/* Input Groups */
 .input-group {
     position: relative;
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 .input-group i {
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 12px;
     transform: translateY(-50%);
-    color: #888;
+    color: #777;
+    font-size: 1.2rem;
 }
 
-.input-group input, 
+.input-group input,
 .input-group select {
     width: 100%;
-    padding: 10px 15px 10px 35px;
+    padding: 12px 15px 12px 45px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    color: #555;
+    border-radius: 8px;
     font-size: 1rem;
+    background: #fafafa;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .input-group input:focus,
 .input-group select:focus {
-    border-color: #6c63ff;
+    border-color: #0066cc;
+    background: #ffffff;
 }
 
 .input-group label {
     font-size: 0.85rem;
-    position: absolute;
-    top: -15px;
-    left: 10px;
-    background-color: #fff;
-    color: #888;
-    padding: 0 5px;
+    color: #666;
+    margin-top: 5px;
+    display: block;
 }
 
 /* Buttons */
-.btn {
-    width: 100%;
-    background-color: #6c63ff;
-    color: white;
-    padding: 10px 15px;
+button.btn {
+    background: #0066cc;
     border: none;
-    border-radius: 5px;
+    padding: 0.8rem 2rem;
     font-size: 1rem;
+    color: #ffffff;
+    border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #5754d6;
-}
-
-/* Links */
-.links {
+    transition: background 0.3s ease, transform 0.2s ease;
     margin-top: 1rem;
+}
+
+button.btn:hover {
+    background: #004c99;
+    transform: translateY(-3px);
+}
+
+/* Links Section */
+.links {
+    margin-top: 1.5rem;
 }
 
 .links p {
     font-size: 0.9rem;
-    color: #666;
+    color: #555;
 }
 
-.links button {
-    background: none;
-    border: none;
-    color: #6c63ff;
-    font-size: 0.9rem;
-    cursor: pointer;
-    text-decoration: underline;
+.links a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.links button:hover {
-    color: #444;
+.links a:hover {
+    color: #004c99;
 }
 
-/* Message Box */
-.messageDiv {
-    display: none;
-    background-color: #f9d6d5;
-    color: #a94442;
-    padding: 10px;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
-    margin-bottom: 1rem;
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Responsive Design */
-@media (max-width: 400px) {
+/* Adjustments for Small Screens */
+@media (max-width: 480px) {
     .container {
-        width: 90%;
-        padding: 1.5rem;
+        padding: 2rem;
+    }
+
+    h1.form-title {
+        font-size: 1.8rem;
+    }
+
+    button.btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
     }
 }

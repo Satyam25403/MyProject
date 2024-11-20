@@ -106,18 +106,16 @@ public class FilterResults extends HttpServlet {
                 	redirectUser(response,"An unknown error occured...confirm resubmission?","arts.html");
                 }
         }
-        public static void promptUser(String msg){
-                JOptionPane.showMessageDialog(null, msg, "Info", JOptionPane.INFORMATION_MESSAGE);
-        }
         
         public static void redirectUser(HttpServletResponse response,String msg,String page)throws IOException{
-            int boxResponse = JOptionPane.showConfirmDialog(null, msg, "Confirm", JOptionPane.YES_NO_OPTION);
-            if (boxResponse == JOptionPane.YES_OPTION) {
-                response.sendRedirect(page);
-            }else {
-                redirectUser(response,"Terminated option......confirm going back to homepage","dummy.html");
-            }
-    }
+                PrintWriter out=response.getWriter();
+                response.setContentType("text/html");
+                out.println("<html><body><form action='"+page+"' method='POST'>");
+                out.println("<h1>"+msg+"</h1>");
+                out.println("<button type='submit' class='btn'>Proceed</button>");
+                out.println("</form></body></html>");
+        }
+    
         
         
 
