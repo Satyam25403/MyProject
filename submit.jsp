@@ -12,79 +12,61 @@
       box-sizing: border-box;
     }
     body {
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      width: 100vw;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e0f7fa;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f4f4f9;
+      height: 100vh;
     }
     .profile {
       background-color: #ffffff;
-      height: 350px;
-      width: 800px;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-template-rows: 150px 50px 50px 50px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
     }
     .profile .icon {
-      grid-row: 1 / span 2;
       background-color: #0077b6;
       color: white;
+      padding: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
     }
     .profile .icon i {
-      font-size: 100px;
+      font-size: 80px;
     }
-    .details, .dob, .pro, .phone, .email {
-      padding: 10px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .profile .details {
+      flex: 1;
+      padding: 20px;
     }
-    .details {
-      grid-row: 1 / 2;
-      font-size: 20px;
-    }
-    .details p {
-      font-size: 25px;
+    .profile .details p {
+      font-size: 22px;
       font-weight: bold;
-      color: #333333;
+      color: #333;
       margin-bottom: 5px;
     }
-    .details #country {
+    .profile .details span {
+      display: block;
       font-size: 18px;
       font-weight: normal;
-      color: #555555;
+      color: #666;
+      margin-bottom: 10px;
     }
-    .dob, .pro, .phone, .email {
+    .profile .info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .profile .info p {
       font-size: 18px;
-      color: #555555;
-    }
-    .dob p, .pro p, .phone p, .email p {
-      margin: 0;
-    }
-    .dob {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-    }
-    .pro {
-      grid-column: 2 / 3;
-      grid-row: 3 / 4;
-    }
-    .phone {
-      grid-column: 2 / 3;
-      grid-row: 4 / 5;
-    }
-    .email {
-      grid-column: 2 / 3;
-      grid-row: 5 / 6;
+      color: #555;
     }
   </style>
 </head>
@@ -103,28 +85,19 @@
 
 <div class="profile">
   <div class="icon">
-    <i class="fa-solid fa-user-graduate" id="graduate"></i>
+    <i class="fa-solid fa-user-graduate"></i>
   </div>
 
   <div class="details">
-    <p id="name"><%= name %></p>
-    <p id="country"><%= country %></p>
-  </div>
-
-  <div class="dob">
-    <p id="dob"><%= dob %></p>
-  </div>
-
-  <div class="pro">
-    <p id="pro"><%= pro %></p>
-  </div>
-
-  <div class="phone">
-    <p id="phone"><%= phone %></p>
-  </div>
-
-  <div class="email">
-    <p id="email"><%= email %></p>
+    <p><%= name %></p>
+    <span id="country"><%= country %></span>
+    <div class="info">
+      <p><strong>DOB:</strong> <%= dob %></p>
+      <p><strong>Profession:</strong> <%= pro %></p>
+      <p><strong>State:</strong> <%= state %></p>
+      <p><strong>Phone:</strong> <%= phone %></p>
+      <p><strong>Email:</strong> <%= email %></p>
+    </div>
   </div>
 </div>
 
