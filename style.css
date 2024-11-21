@@ -1,140 +1,106 @@
-/* General Reset */
-body {
+/* Reset some basic elements */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table, th, td, form, input, select, textarea, button {
     margin: 0;
     padding: 0;
+    border: 0;
+    font-family: 'Arial', sans-serif;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    background: #f9f9f9;
-    color: #444;
+}
+
+/* Add some padding and centering */
+body {
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Container */
 .container {
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 2.5rem;
-    max-width: 480px;
     width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.form-title {
+    margin-bottom: 20px;
     text-align: center;
-    animation: slideIn 0.5s ease-in-out;
+    font-size: 24px;
+    color: #333;
 }
 
-h1.form-title {
-    margin-bottom: 1.5rem;
-    color: #222;
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-/* Input Groups */
 .input-group {
+    margin-bottom: 15px;
     position: relative;
-    margin-bottom: 1.5rem;
-    text-align: left;
 }
 
 .input-group i {
     position: absolute;
     top: 50%;
-    left: 12px;
+    left: 10px;
     transform: translateY(-50%);
-    color: #777;
-    font-size: 1.2rem;
+    color: #999;
 }
 
 .input-group input,
 .input-group select {
     width: 100%;
-    padding: 12px 15px 12px 45px;
+    padding: 10px 10px 10px 40px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #fafafa;
-    outline: none;
-    transition: all 0.3s ease;
+    border-radius: 5px;
+    transition: all 0.3s;
 }
 
 .input-group input:focus,
 .input-group select:focus {
-    border-color: #0066cc;
-    background: #ffffff;
+    border-color: #333;
+    outline: none;
 }
 
 .input-group label {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 5px;
-    display: block;
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #333;
 }
 
-/* Buttons */
-button.btn {
-    background: #0066cc;
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
     border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    color: #ffffff;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    margin-top: 1rem;
+    transition: background 0.3s;
 }
 
-button.btn:hover {
-    background: #004c99;
-    transform: translateY(-3px);
+.btn:hover {
+    background: #555;
 }
 
-/* Links Section */
 .links {
-    margin-top: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .links p {
-    font-size: 0.9rem;
-    color: #555;
+    margin-bottom: 10px;
+    color: #666;
 }
 
 .links a {
-    color: #0066cc;
+    color: #333;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 .links a:hover {
-    color: #004c99;
-}
-
-/* Animations */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Adjustments for Small Screens */
-@media (max-width: 480px) {
-    .container {
-        padding: 2rem;
-    }
-
-    h1.form-title {
-        font-size: 1.8rem;
-    }
-
-    button.btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.95rem;
-    }
+    text-decoration: underline;
 }
