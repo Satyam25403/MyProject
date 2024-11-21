@@ -42,7 +42,7 @@ public class Signin extends HttpServlet {
                                                 out.println("<html><body>");//render successful message?
                                                 out.println("<form action='dummy.jsp' method='POST' style='display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0;'>");
                                                 // out.println("<h1 style='background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 20px; border-radius: 5px; font-family: Arial, sans-serif; text-align: center>Log in successful</h1>");
-                                                out.println("<h1>hi</h1>");
+                                                out.println("<h1>Logged in successfully</h1>");
                                                 out.println("<input type='hidden' name='email2' value='"+email+"'>");
                                                 out.println("<button type='submit' class='btn' style='margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;'>Proceed</button>");
                                                 out.println("</form>");

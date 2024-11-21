@@ -45,11 +45,10 @@ String email;
         <p>Historical art reflects the culture and values of its time, evolving from symbolic cave paintings to the realism of the Renaissance and the drama of the Baroque. Influenced by society, materials, and patronage, it documented history, expressed beliefs, and paved the way for modern art's experimentation and abstraction.</p>
         <a href="states-arts.jsp"><button class="explore">Explore more</button></a>
         <% 
-        PrintWriter out = response.getWriter();
         response.setContentType("text/html");
         out.println("<html><body>");
         out.println("<form action='signupartist.jsp' method='POST' style='display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0;'>");
-        out.println("<h1 style='background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 20px; border-radius: 5px; font-family: Arial, sans-serif; text-align: center;>Log in successful</h1>");
+        // out.println("<h1 style='background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 20px; border-radius: 5px; font-family: Arial, sans-serif; text-align: center;>Log in successful</h1>");
         // out.println("<input type='hidden' name='email' value='"+email+"'>");
         out.println("<button type='submit' class='btn' style='margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;'>Register to showcase your talent</button>");
         out.println("</form>");
