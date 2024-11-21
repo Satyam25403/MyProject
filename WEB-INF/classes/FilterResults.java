@@ -98,12 +98,12 @@ public class FilterResults extends HttpServlet {
                                 }
                                 
                         }catch(SQLException e){
-                                redirectUser(response,"Error fetching data from database...wish to submit again?","arts.html");
+                                redirectUser(response,"Error fetching data from database...wish to submit again?","arts.jsp");
                         }
                         out.println("</table></body></html>");
 
                 }catch (Exception e){
-                	redirectUser(response,"An unknown error occured...confirm resubmission?","arts.html");
+                	redirectUser(response,"An unknown error occured...confirm resubmission?","arts.jsp");
                 }
         }
         

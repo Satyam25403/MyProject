@@ -24,6 +24,7 @@ public class Signin extends HttpServlet {
                                 PreparedStatement test= con.prepareStatement("select email from users where email=?;");
                                 test.setString(1, email);
                                 ResultSet r=test.executeQuery();
+                               
                                 if(r.next()) {
                                 	//if that mail is already in database: check for email and password
                                 
@@ -36,23 +37,32 @@ public class Signin extends HttpServlet {
                                 
                                 	ResultSet rs=st.executeQuery();
                                 	if(rs.next()){
-                                                redirectUser(response,"successfully Loggedin...........Proceeding to home page","dummy.html");
+                                                PrintWriter out = response.getWriter();
+                                                response.setContentType("text/html");
+                                                out.println("<html><body>");//render successful message?
+                                                out.println("<form action='dummy.jsp' method='POST' style='display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0;'>");
+                                                // out.println("<h1 style='background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 20px; border-radius: 5px; font-family: Arial, sans-serif; text-align: center>Log in successful</h1>");
+                                                out.println("<h1>hi</h1>");
+                                                out.println("<input type='hidden' name='email2' value='"+email+"'>");
+                                                out.println("<button type='submit' class='btn' style='margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;'>Proceed</button>");
+                                                out.println("</form>");
+                                                out.println("</body></html>");
                         		}
                         		else {
-                                                redirectUser(response,"username password mismatch.....we recommend relogin","signin.html");
+                                                redirectUser(response,"username password mismatch.....we recommend relogin","signin.jsp");
                         		}
                                         
                         		st.close();
                         	}else {
-                        		redirectUser(response,"Unregistered email.........Proceeding to Signup page","signup.html");
+                        		redirectUser(response,"Unregistered email.........Proceeding to Signup page","signup.jsp");
                         	}
                                 
                         }catch(SQLException e){
-                        	redirectUser(response,"Error while verifying email........Proceeding again to Signin page","signin.html");
+                        	redirectUser(response,"Error while verifying email........Proceeding again to Signin page","signin.jsp");
                         }
 
                 }catch (Exception e){
-                	redirectUser(response,"An unknown error occured........Confirm resubmission to Signup page","signin.html");
+                	redirectUser(response,"An unknown error occured........Confirm resubmission to Signiin page","signin.jsp");
                 }
         }
         

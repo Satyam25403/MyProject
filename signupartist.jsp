@@ -11,9 +11,9 @@
     </head>
     <body>
         <div class="container" id="signup" >
-            <h1 class="form-title">Register</h1>
+            <h1 class="form-title">Show case your talent</h1>
       
-            <form method="post" action="Signup">
+            <form method="post" action="SignupArtist">
       
               <div class="input-group"> 
                  <i class="fas fa-user"></i>
@@ -334,12 +334,6 @@
               
              <button class="btn" name="submit" >Sign Up</button>
             </form>
-            <div class="links">
-                <p>Already have an account?</p>
-                <a href="signin.html">Login</a>
-                <button name="signInButton"></button>
-                
-            </div>
               
           </div>
     </body>

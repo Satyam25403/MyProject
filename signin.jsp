@@ -34,7 +34,7 @@
         <div class="links">
           <a href="forgotpassword.jsp">Forgot password?</a><br><br>
           <p>Don't have an account?</p>
-          <a href="signup.html">Register</a>
+          <a href="signup.jsp">Register</a>
           <button name="signUpButton"></button>
           
       </div>

@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+body{
+    overflow-x: hidden;
+}
+header{
+    width: 100vw;
+    height: 100px;
+    position: sticky;
+    top: 0px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 5;
+}
+header nav{
+    display: flex;
+}
+header nav h4{
+    padding: 10px 20px;
+}
+
+
+.welcome-page,.arts-field,.culture-field,.tradition-field,.tourism-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:flex-start;
+}
+.welcome-page{
+    height: calc(100vh - 100px);
+    width: 100vw;
+    opacity: 0.6;
+}
+.welcome-page h1{
+    font-size: 180px;
+    text-transform: uppercase;
+    word-spacing: -10px;
+    font-weight: 750;
+    line-height: 250px;
+    letter-spacing: -5px;
+}
+.arts-field h1,.culture-field h1,.tradition-field h1,.tourism-field h1{
+    font-size: 70px;
+    position: relative;
+    left: 10%;
+}
+.arts-field p,.culture-field p,.tradition-field p,.tourism-field p{
+    max-width: 70%;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.arts-field{
+    height: 100vh;
+    width: 100vw;
+    background-color: orange;
+}
+.culture-field{
+    height: 100vh;
+    width: 100vw;
+    background-color: greenyellow;
+}
+.tradition-field{
+    height: 100vh;
+    width: 100vw;
+    background-color: palevioletred;
+}
+.tourism-field{
+    height: 100vh;
+    width: 100vw;
+    background-color: blueviolet;
+}
+.arts-field a,.culture-field a,.tradition-field a,.tourism-field a{
+    position: relative;
+    left: 47%;
+}

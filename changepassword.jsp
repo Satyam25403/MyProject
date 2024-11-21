@@ -6,7 +6,7 @@ String email=request.getParameter("email");
 
 if (!userans.equals(actualans)) {
     response.setContentType("text/html");
-    out.println("<html><body><form action='forgotpassword.html' method='POST'>");
+    out.println("<html><body><form action='forgotpassword.jsp' method='POST'>");
     out.println("<h1>Wrong answer to security question...retry?</h1>");
     out.println("<button type='submit' class='btn'>Proceed</button>");
     out.println("</form></body></html>");

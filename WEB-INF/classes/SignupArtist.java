@@ -5,8 +5,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 
-@WebServlet("/Signup")
-public class Signup extends HttpServlet {
+@WebServlet("/SignupArtist")
+public class SignupArtist extends HttpServlet {
         private static final long serialVersionUID = 1L;
 
         protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,37 +17,48 @@ public class Signup extends HttpServlet {
 
 
                         String username=request.getParameter("Name");
+                        String country=request.getParameter("Country");
+                        String dob=request.getParameter("dob");
+                        String profession=request.getParameter("Profession");
                         String email=request.getParameter("email");
-                        String password=request.getParameter("password");
+                        String password=request.getParameter("Password");
+                        String state=request.getParameter("state");
+                        String phone=request.getParameter("phone");
+                        String secques=request.getParameter("securityquestion");
+                        String ans=request.getParameter("answer");
                         
-                        try{
-                                PreparedStatement st1=con.prepareStatement("select email from users where email=?;");
-                                st1.setString(1, email);
-                                ResultSet rs=st1.executeQuery();
-                                if(rs.next()){
-                                        redirectUser(response,"Email exists...Wish to sign in?","signin.jsp");
-                                }
-                                else{
-                                        PreparedStatement st= con.prepareStatement("insert into users(name,email,password) values(?,?,?);");
+                        try{    
+                                PreparedStatement st3=con.prepareStatement("delete from users where email=?;");
+                                st3.setString(1,email);
+                                st3.executeUpdate();
+                              
+                                        PreparedStatement st= con.prepareStatement("insert into users values(?,?,?,?,?,?,?,?,?,?);");
                                         st.setString(1, username);
-                                        st.setString(2, email);
-                                        st.setString(3, password);
+                                        st.setString(2, country);
+                                        st.setString(3, dob);
+                                        st.setString(4, profession);
+                                        st.setString(5, email);
+                                        st.setString(6, password);
+                                        st.setString(7, state);
+                                        st.setString(8, phone);
+                                        st.setString(9, secques);
+                                        st.setString(10, ans);
 
                                         int n=st.executeUpdate();
                                         if(n>0){
-                                                redirectUser(response,"successfully created...........Proceeding to login page","signin.jsp");
+                                                redirectUser(response,"successfully created...........Proceeding to homepage","dummy.jsp");
                                         }
                                         else {
-                                                redirectUser(response,"Error occured.....Confirm Resubmission?","signup.jsp");
+                                                redirectUser(response,"Error occured.....Confirm Resubmission?","dummy.jsp#arts-field");
                                         }
-                                }
+                                
                                 
                         }catch(SQLException e){
-                        	redirectUser(response,"Error interacting with database.....Confirm Resubmission?","signup.jsp");
+                        	redirectUser(response,"Error interacting with database.....Confirm Resubmission?","dummy.jsp#arts-field");
                         }
 
                 }catch (Exception e){
-                	redirectUser(response,"An unknown error occured.....Confirm Resubmission?","signup.jsp");
+                	redirectUser(response,"An unknown error occured.....Proceeding to home page","dummy.jsp");
                 }
         }
         

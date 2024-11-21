@@ -34,23 +34,23 @@ public class UpdateNewPassword extends HttpServlet {
                         int n= ps.executeUpdate();
 
                         if (n>0) {
-                            redirectUser(response, "password updated successfully.....redirecting to homepage", "dummy.html");
+                            redirectUser(response, "password updated successfully.....redirecting to homepage", "dummy.jsp");
                         } else {
-                            redirectUser(response, "Error while updating password....retry?","forgotpassword.html");;
+                            redirectUser(response, "Error while updating password....retry?","forgotpassword.jsp");;
                         }
                     
                     }
                     catch (SQLException e) {
-                        redirectUser(response, "Error verifying from database.....confirm resubmission", "forgotpassword.html");
+                        redirectUser(response, "Error verifying from database.....confirm resubmission", "forgotpassword.jsp");
                     }
                 }
                 else{
                     //passwords dont match
-                    redirectUser(response, "Passwords dont match....try updating password again?", "forgotpassword.html");
+                    redirectUser(response, "Passwords dont match....try updating password again?", "forgotpassword.jsp");
                 }
             
         } catch (Exception e) {
-            redirectUser(response, "Unkown error occured.....Proceeding to home page", "dummy.html");
+            redirectUser(response, "Unkown error occured.....Proceeding to home page", "dummy.jsp");
         }
     }
     public static void redirectUser(HttpServletResponse response, String msg, String page) throws IOException {

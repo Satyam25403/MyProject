@@ -54,7 +54,7 @@ public class ResetPassword extends HttpServlet {
                 redirectUser(response, "Error verifying email from database", "forgotpassword.jsp");
             }
         } catch (Exception e) {
-            redirectUser(response, "Unkown error occured.....Proceeding to home page", "dummy.html");
+            redirectUser(response, "Unkown error occured.....Proceeding to home page", "dummy.jsp");
         }
     }
     public static void redirectUser(HttpServletResponse response, String msg, String page) throws IOException {

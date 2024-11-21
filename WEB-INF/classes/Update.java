@@ -40,7 +40,7 @@ public class Update extends HttpServlet {
                                 st.setString(7,email);
                                 int n=st.executeUpdate();
                                 if(n>0){
-                                        redirectUser(response,"successfully updated...........Proceeding to home page","dummy.html");
+                                        redirectUser(response,"successfully updated...........Proceeding to home page","dummy.jsp");
                                 }
                                 else {
                                         redirectUser(response,"Error occured while updating.....Confirm Resubmission?","profileupdation.jsp");
@@ -52,7 +52,7 @@ public class Update extends HttpServlet {
                         }
 
                 }catch (Exception e){
-                	redirectUser(response,"An unknown error occured.....Redirecting to home page?","dummy.html");
+                	redirectUser(response,"An unknown error occured.....Redirecting to home page?","dummy.hjsp");
                 }
         }
         
