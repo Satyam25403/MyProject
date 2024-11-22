@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
+    <title>Logout section</title>
     <style>
         * {
             margin: 0;
@@ -66,13 +66,10 @@
 </head>
 <body>
     <div class="update">
-        <form method="post" action="updateprofile.jsp">
-            Enter Email: <input type="email" name="email" required>
-            <input type="submit" value="View your profile">
+        <form method="post" action="index.jsp">
+            Confirm logout?<br>
+            <input type="submit" value="Logout">
         </form>
-        <% if (request.getParameter("error") != null) { %>
-            <p><%= request.getParameter("error") %></p>
-        <% } %>
     </div>
 </body>
 </html>

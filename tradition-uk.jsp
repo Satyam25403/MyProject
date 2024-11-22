@@ -8,6 +8,9 @@
   
 </head>
 <body>
+<header>
+    <a href="states-tradition.jsp"><button class="b2">back</button></a>
+  </header>
   <header class="head">
     <h1>TRADITION of Uttarakhand</h2>
   </header>

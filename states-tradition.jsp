@@ -65,7 +65,7 @@
         </div>
 
         <div class="card">
-            <img src="photos/uk.jsp" alt="">
+            <img src="photos/uk.jpg" alt="">
             <a href="tradition-uk.jsp"><button class="b">Uttarakhand</button></a>
         </div>
     </div>

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
+    list-style-type: none;
 }
 body{
     
@@ -60,6 +61,7 @@ nav h4 a:hover
     color: #784b55;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 50px;
 }
 .welcome-page,.arts-field,.culture-field,.tradition-field,.tourism-field{
     display: flex;
@@ -161,4 +163,20 @@ nav h4 a:hover
 .explore:hover{
     color: black;
     background-color: white;
+}
+
+.hide
+{
+    display: none;
+}
+.hide a li{
+    color: #644047;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: white;
+}
+.hide a li:hover
+{
+    background-color: #644047;
+    color: white;
 }

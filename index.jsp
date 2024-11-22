@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinity</title>
     <link rel="stylesheet" href="Trinity.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <!------------------------------------------------------------------- navigation ------------------------------------------------------------->
     <header>
         <div class="logo">
-            <button class="toggle">toggle</button>
-            <span>Trinity</span>
+            <span class="title">Trinity</span>
         </div>
         <nav>
                 <h4><a href="">Home</a></h4>
@@ -22,12 +22,7 @@
                 <h4><a href="#tourism-field">Tourism</a></h4>
         </nav>
         <div class="credentials">
-            <!--change the action attribute to redirect to signinform in html-->
-            <form method="post" action="signup.jsp">
-            <input type="submit" value="Register/login">
-            </form>
-        </div>
-            
+            <a href="signup.jsp"><button class="login"><i class="fa-solid fa-user" style="color: #784b55;"></i>Register/login</button></a>
         </div>
     </header>
 
@@ -38,7 +33,15 @@
     </div>
 
     <div class="arts-field" id="arts-field">
-        <h1>Arts section</h1>
+       
+         <div class="arts-buttons">
+            <div>
+                <h1 class="arts-h1">Arts section</h1>
+            </div>
+            <div class="buttons">
+                <a href="signupartist.jsp"><button class="register" title="Want to show case your talent register here ">Register as an artist</button></a>
+            </div>
+         </div>
         <p>Historical art reflects the culture and values of its time, evolving from symbolic cave paintings to the realism of the Renaissance and the drama of the Baroque. Influenced by society, materials, and patronage, it documented history, expressed beliefs, and paved the way for modern art's experimentation and abstraction.</p>
         <a href="states-arts.jsp"><button class="explore">Explore more</button></a>
     </div>
@@ -58,7 +61,7 @@
     <div class="tourism-field" id="tourism-field">
         <h1>Tourism section</h1>
         <p>Tourism involves traveling for leisure, exploration, or cultural exchange, often to experience new places, traditions, and natural wonders. It drives economic growth, promotes cultural understanding, and fosters global connections. While tourism offers personal enrichment, it can also impact local environments and communities, requiring sustainable practices.</p>
-        <a href="states-tourism.jsp"><button class="explore">Explore more</button></a>   
+        <a href="https://googlemaps.com"><button class="explore">Explore more</button></a>   
     </div>
 
     <script src="scripts/Trinity.js"></script>

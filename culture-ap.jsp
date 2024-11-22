@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <a href="states-culture.html"><button class="b2">back</button></a>
+    <a href="states-culture.jsp"><button class="b2">back</button></a>
   </header>
   <header class="head">
     <h1>CULTURE of Andhra Pradesh</h2>

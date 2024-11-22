@@ -8,7 +8,9 @@
   
 </head>
 <body>
-  
+  <header>
+    <a href="states-arts.jsp"><button class="b2">back</button></a>
+  </header>
   <header>
     <h1 class="head">ARTS OF Andhra Pradesh</h2>
   </header>

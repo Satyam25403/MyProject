@@ -1,23 +1,18 @@
-<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trinity</title>
-    <link rel="stylesheet" href="Trinity.css">
+    <link rel="stylesheet" href="Trnity1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<%!
-String email;
-%>
-<% email=request.getParameter("email");%>
 
     <!------------------------------------------------------------------- navigation ------------------------------------------------------------->
     <header>
         <div class="logo">
-            <button class="toggle">toggle</button>
-            <span>Trinity</span>
+            <span class="title">Trinity</span>
         </div>
         <nav>
                 <h4><a href="">Home</a></h4>
@@ -27,10 +22,14 @@ String email;
                 <h4><a href="#tourism-field">Tourism</a></h4>
         </nav>
         <div class="credentials">
-            <form method="post" action="updateprofile.jsp">
-            <input type="hidden" name="email2" value=<%=email%>>
-            <input type="submit" value="Logged in">
-            </form>
+            <ul class="click">
+                <li><button class="login"><i class="fa-solid fa-user" style="color: #784b55;"></i>Logged in</button></li>
+                <ul class="hide">
+                    <a href="viewdetails.jsp"><li>view profile</li></a>
+                    <%-- <a href=""><li>update profile</li></a> --%>
+                    <a href="logout.jsp"><li>logout</li></a>
+                </ul>
+            </ul>
         </div>
     </header>
 
@@ -41,20 +40,18 @@ String email;
     </div>
 
     <div class="arts-field" id="arts-field">
-        <h1>Arts section</h1>
+       
+         <div class="arts-buttons">
+            <div>
+                <h1 class="arts-h1">Arts section</h1>
+            </div>
+            <div class="buttons">
+                <a href="signupartist.jsp"><button class="register" title="Want to show case your talent register here ">Register</button></a>
+                <a href="artsregistration.jsp"><button class="show" title="Click to view the registered artists">Show Artists</button></a>
+            </div>
+         </div>
         <p>Historical art reflects the culture and values of its time, evolving from symbolic cave paintings to the realism of the Renaissance and the drama of the Baroque. Influenced by society, materials, and patronage, it documented history, expressed beliefs, and paved the way for modern art's experimentation and abstraction.</p>
         <a href="states-arts.jsp"><button class="explore">Explore more</button></a>
-        <% 
-        response.setContentType("text/html");
-        out.println("<html><body>");
-        out.println("<form action='signupartist.jsp' method='POST' style='display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0;'>");
-        // out.println("<h1 style='background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 20px; border-radius: 5px; font-family: Arial, sans-serif; text-align: center;>Log in successful</h1>");
-        // out.println("<input type='hidden' name='email' value='"+email+"'>");
-        out.println("<button type='submit' class='btn' style='margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;'>Register to showcase your talent</button>");
-        out.println("</form>");
-        out.println("</body></html>");
-
-        %>
     </div>
 
     <div class="culture-field" id="culture-field">
@@ -69,12 +66,24 @@ String email;
         <a href="states-tradition.jsp"><button class="explore">Explore more</button></a>
     </div>
 
+    <%-- a logged in user can access maps dummy.jsp can access maps --%>
     <div class="tourism-field" id="tourism-field">
         <h1>Tourism section</h1>
         <p>Tourism involves traveling for leisure, exploration, or cultural exchange, often to experience new places, traditions, and natural wonders. It drives economic growth, promotes cultural understanding, and fosters global connections. While tourism offers personal enrichment, it can also impact local environments and communities, requiring sustainable practices.</p>
-        <a href="states-tourism.jsp"><button class="explore">Explore more</button></a>   
+        <a href="https://googlemaps.com"><button class="explore">Explore more</button></a>   
     </div>
 
-    <script src="scripts/Trinity.js"></script>
-</body>
+    <script>
+        document.querySelector('.click').addEventListener('click', function() {
+            const dropdown = document.querySelector('.hide');
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                document.querySelector('.click').style.margin_top="20px";
+                dropdown.style.display = 'block';
+                
+            }
+        });
+    </script>
+    </body>
 </html>

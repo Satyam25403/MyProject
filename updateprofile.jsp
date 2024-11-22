@@ -133,10 +133,11 @@
 
 <div class="update">
     <!-- Correct the hidden field to properly pass the email for updating -->
-    <form method="post" action="profileupdation.jsp">
-        <input type="hidden" name="email" value="<%=dbemail%>">
-        <input type="submit" value="Update Profile">
-    </form>
+    <form method="post" action="profileupdation.jsp" style="display: flex; flex-direction: column; align-items: center; background-color: #f4f4f4; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+    <input type="hidden" name="email" value="<%=dbemail%>">
+    <input type="submit" value="Update Profile" style="padding: 10px 20px; background-color: #333; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+</form>
+
 </div>
 
 </body>

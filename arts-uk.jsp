@@ -10,7 +10,9 @@
   </style>
 </head>
 <body>
-  
+  <header>
+    <a href="states-arts.jsp"><button class="b2">back</button></a>
+  </header>
   <header>
     <h2 class="head">ARTS of Uttarkandh</h2>
   </header>
