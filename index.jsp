@@ -40,25 +40,25 @@
     <div class="arts-field" id="arts-field">
         <h1>Arts section</h1>
         <p>Historical art reflects the culture and values of its time, evolving from symbolic cave paintings to the realism of the Renaissance and the drama of the Baroque. Influenced by society, materials, and patronage, it documented history, expressed beliefs, and paved the way for modern art's experimentation and abstraction.</p>
-        <a href="arts.jsp"><button class="explore">Explore more</button></a>
+        <a href="states-arts.jsp"><button class="explore">Explore more</button></a>
     </div>
 
     <div class="culture-field" id="culture-field">
         <h1>Culture section</h1>
         <p>Culture encompasses the beliefs, practices, art, and traditions of a society, reflecting its identity and values. It evolves through history, influenced by geography, religion, and interaction with other cultures, shaping languages, customs, and ways of life. Culture preserves heritage while adapting to change, bridging the past and present.</p>
-        <a href="culture.jsp"><button class="explore">Explore more</button></a>
+        <a href="states-culture.jsp"><button class="explore">Explore more</button></a>
     </div>
 
     <div class="tradition-field" id="tradition-field">
         <h1>Tradition section</h1>
         <p>Tradition refers to the customs, rituals, and practices passed down through generations, shaping a community’s identity. It reflects a society's values, beliefs, and way of life, often tied to cultural, religious, or historical events. While traditions evolve over time, they help preserve heritage and foster a sense of continuity and belonging.</p>
-        <a href="tradition.jsp"><button class="explore">Explore more</button></a>
+        <a href="states-tradition.jsp"><button class="explore">Explore more</button></a>
     </div>
 
     <div class="tourism-field" id="tourism-field">
         <h1>Tourism section</h1>
         <p>Tourism involves traveling for leisure, exploration, or cultural exchange, often to experience new places, traditions, and natural wonders. It drives economic growth, promotes cultural understanding, and fosters global connections. While tourism offers personal enrichment, it can also impact local environments and communities, requiring sustainable practices.</p>
-        <a href="tourism.jsp"><button class="explore">Explore more</button></a>   
+        <a href="states-tourism.jsp"><button class="explore">Explore more</button></a>   
     </div>
 
     <script src="scripts/Trinity.js"></script>

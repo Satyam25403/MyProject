@@ -11,7 +11,7 @@ public class FilterResults extends HttpServlet {
         private static final long serialVersionUID = 1L;
 
         protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                Connection con;
+                Connection con;ResultSet rs;
                 try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         con=DriverManager.getConnection("jdbc:mysql://localhost:3306/satyam","root","Loknath@2534");
@@ -56,12 +56,32 @@ public class FilterResults extends HttpServlet {
                         out.println("</head><body>");
                         out.println("<table border='1' cellpadding='5' cellspacing='0'>");
                         out.println("<tr><th>Name</th><th>State</th><th>Profession</th><th>More details</th></tr>");
-                        
-                        try{
-                                PreparedStatement st=con.prepareStatement("select * from users where state=? and profession=?;");
-                                st.setString(1, state);
-                                st.setString(2, profession);
-                                ResultSet rs=st.executeQuery();
+                      
+                        try{    
+                                PreparedStatement s=con.prepareStatement("select * from users where state=?;");
+                                s.setString(1, state);
+
+                                PreparedStatement p=con.prepareStatement("select * from users where profession=?;");
+                                p.setString(1, profession);
+
+                                PreparedStatement both=con.prepareStatement("select * from users where state=? and profession=?;");
+                                both.setString(1, state);
+                                both.setString(2, profession);
+
+                                PreparedStatement noFilter=con.prepareStatement("select * from users;");
+
+                                if(state.equals("Select a State") && !(profession.equals("Select a Profession"))){
+                                        rs=p.executeQuery();
+                                }
+                                else if(profession.equals("Select a Profession") && !(state.equals("Select a State"))){
+                                        rs=s.executeQuery();
+                                }
+                                else if(!(state.equals("Select a State")) && !(profession.equals("Select a Profession"))){
+                                        rs=both.executeQuery();
+                                }
+                                else{
+                                        rs=noFilter.executeQuery();
+                                }
                                 if(rs.next()){
                                         do {
                                                 String name = rs.getString("name");

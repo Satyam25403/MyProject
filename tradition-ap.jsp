@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tradition-ap</title>
-  <link rel="stylesheet" href="styles/tradition-ap.css">
+  <link rel="stylesheet" href="tradition-ap.css">
 </head>
 <body>
   <header>

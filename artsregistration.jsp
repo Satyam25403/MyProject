@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Arts section</title>
+        <title>Find Artists</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         
@@ -21,7 +21,7 @@
                 <i class="fas fa-mortar-board"></i>
                 
                   <select id="Profession" name="Profession">
-                      <option value="">Select a Profession</option>
+                      <option value="Select a Profession">Select a Profession</option>
                       <option value="Photographer">Photographer</option>
                       <option value="Videographer">Videographer</option>
                       <option value="Musician">Musician</option>
@@ -41,7 +41,7 @@
               <div class="input-group">
     <i class="fas fa-map-marker-alt"></i>
     <select id="State" name="state">
-        <option value="">Select a State</option>
+        <option value="Select a State">Select a State</option>
         
         <option value="Andhra Pradesh">Andhra Pradesh</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>

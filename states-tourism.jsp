@@ -65,7 +65,7 @@
         </div>
 
         <div class="card">
-            <img src="photos/uk.png" alt="">
+            <img src="photos/uk.jpg" alt="">
             <a href="Trinity.html"><button class="b">Uttarakhand</button></a>
         </div>
     </div>

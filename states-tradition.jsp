@@ -61,12 +61,12 @@
     <div class="states">
         <div class="card">
             <img src="photos/ap.jpg" alt="">
-            <a href="tradition-ap.html"><button class="b">Andhra Pradesh</button></a>
+            <a href="tradition-ap.jsp"><button class="b">Andhra Pradesh</button></a>
         </div>
 
         <div class="card">
-            <img src="photos/uk.png" alt="">
-            <a href="tradition-uk.html"><button class="b">Uttarakhand</button></a>
+            <img src="photos/uk.jsp" alt="">
+            <a href="tradition-uk.jsp"><button class="b">Uttarakhand</button></a>
         </div>
     </div>
 </body>

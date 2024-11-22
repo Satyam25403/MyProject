@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>culture uk</title>
-  <link rel="stylesheet" href="styles/culture-uk.css">
+  <link rel="stylesheet" href="culture-uk.css">
 </head>
 <body>
   <header class="head">

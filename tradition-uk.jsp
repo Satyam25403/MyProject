@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tradition-uk</title>
-  <link rel="stylesheet" href="styles/tradition-uk.css">
+  <link rel="stylesheet" href="tradition-uk.css">
   
 </head>
 <body>
